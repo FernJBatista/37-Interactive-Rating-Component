@@ -1,0 +1,342 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+// Primary
+--Orange: #fb7413;
+// Neutral
+--White: #ffffff;
+--Light-Grey: #959eac;
+--DarkBlue: #252d37;
+--Very-Dark-Blue: #121417;
+}
+
+///Viewport Size
+$desktop-breakpoint: 64rem;
+$tablet-breakpoint: 40rem;
+
+////////////////////////////////////
+////////////////////////////////////
+// Text Styles
+////////////////////////////////////
+
+
+h1 {
+    font-size: clamp(2rem, 2.5vw, 3rem);
+    line-height: 1.25;
+    font-weight: 700;
+    letter-spacing: 0.05rem;
+
+}
+
+h2 {
+    font-size: clamp(2rem, 2.5vw, 3rem);
+    font-weight: 700;
+    letter-spacing: 0.05rem;
+}
+
+h3 {
+    font-size: clamp(3rem, 2.5vw, 4rem); 
+    font-weight: 700;
+    letter-spacing: 0.05rem;
+}
+
+.big {
+    font-size: clamp(1.5rem, 2vw, 2rem);
+}
+
+p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+body {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    box-sizing: border-box;
+    height: 100vh;
+    font-family: 'Overpass', sans-serif;
+    background-color: var(--Very-Dark-Blue);
+    padding: 0 1.5rem;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 28rem;
+    padding: 2rem;
+    border-radius: 1rem;
+    background-color: #252d3775;
+    box-shadow: 0 0.25rem 0.75rem 0.25rem #00000030;
+
+    form {
+        display: none;
+        flex-direction: column;
+        gap: 1.5rem;
+        width: 100%;
+
+        &.active {
+            display: flex;
+        }
+
+        #starIcon {
+            height: 4rem;
+            width: 4rem;
+            padding: 1.15rem;
+            border-radius: 100%;
+            background-color: #959eac10;
+            margin-bottom: 0.5rem;
+        }
+    
+        h1 {
+            color: var(--White);
+        }
+    
+        p {
+            color: var(--Light-Grey);
+        }
+        
+        fieldset {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+
+            //Customize the radio buttons here
+            label {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                height: 3.5rem;
+                aspect-ratio: 1/1;
+                border-radius: 100%;
+                background-color: #252d37;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                color: var(--Light-Grey);
+
+                // Hide the default checkbox of the browser
+                input {
+                    position: absolute;
+                    opacity: 0;
+                    cursor: pointer;
+                    height: 0;
+                    width: 0;
+                    transition: all 0.4s ease-in-out;
+
+                    // When radio button is checked
+                    &:checked ~ .ratingButton {
+                        background-color: var(--White);
+                        color: var(--DarkBlue);
+                    }
+                }
+
+                .ratingButton {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 1rem;
+                    font-weight: 700;
+                    height: 100%;
+                    width: 100%;
+                    border-radius: 100%;
+                    cursor: pointer;
+                    transition: all 0.15s ease-in-out;
+
+                    &:hover {
+                        color: var(--Very-Dark-Blue);
+                        background-color: var(--Orange);
+                    }
+                }
+            }
+        }
+
+        button {
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.20rem;
+            border-radius: 4rem;
+            padding: 1rem;
+            background-color: var(--Orange);
+            border: none;
+            outline: none;
+            cursor: pointer;
+
+            &:hover {
+                background-color: var(--White);
+            }
+        }
+    }
+
+    #successMessage {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+
+        &.active {
+            display: flex;
+        }
+
+        img {
+            width: 50%;
+        }
+
+        #score {
+            padding: 0.75rem 1.25rem;
+            border-radius: 9999px;
+            color: var(--Orange);
+            background-color: #252d37;
+        }
+
+        h2 {
+            color: var(--White);
+        }
+
+        p {
+            text-align: center;
+            color: var(--Light-Grey);
+        }
+    }
+}

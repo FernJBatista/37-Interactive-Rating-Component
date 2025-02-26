@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="./css/styles.css">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+  <!-- Scripts -->
+  <script src="./index.js" defer></script>
+  
+  <title>Frontend Mentor | Interactive rating component</title>
+
+</head>
+<body>
+
+  <!-- Rating state start -->
+  <main>
+
+    <form novalidate class="active">
+
+      <img src="./images/icon-star.svg" alt="Star Icon" id="starIcon">
+      <h1>How did we do?</h1>
+      <p>
+        Please let us know how we did with your support request.
+        All feedback is appreciated to help us improve our offering!
+      </p>
+
+      <fieldset id="ratingContainer">
+          
+        <label for="star1">
+          <input type="radio" name="rating" id="star1" value="1">
+          <span class="ratingButton">1</span>
+        </label>
+        <label for="star2">
+          <input type="radio" name="rating" id="star2" value="2">
+          <span class="ratingButton">2</span>
+        </label>
+          <label for="star3">
+          <input type="radio" name="rating" id="star3" value="3">
+          <span class="ratingButton">3</span>
+        </label>
+        <label for="star4">
+          <input type="radio" name="rating" id="star4" value="4">          
+          <span class="ratingButton">4</span>
+          </label>
+        <label for="star5">
+          <input type="radio" name="rating" id="star5" value="5" checked>
+          <span class="ratingButton">5</span>
+        </label>
+
+      </fieldset>
+
+      <button id="submit">Submit</button>
+
+    </form>
+    <!-- Rating state end -->
+
+    <!-- Success state start -->
+    <article id="successMessage">
+      <img src="./images/illustration-thank-you.svg" alt="Success Illustration.">
+      <span id="score"></span>
+      <h2>Thank you!</h2>
+      <p>
+        We appreciate you taking the time to give a rating.
+        If you ever need more support, don't hesitate to get
+        in touch.
+      </p>
+    </article>
+  <!-- Success state end -->
+  </main>
+  
+</body>
+</html>
